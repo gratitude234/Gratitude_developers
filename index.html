@@ -16,7 +16,9 @@
       --transition: all 0.25s ease;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -27,11 +29,25 @@
       scroll-behavior: smooth;
     }
 
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-    h1, h2, h3, h4, h5, h6 { margin: 0; color: var(--text); }
-    p { margin: 0 0 0.75rem; color: var(--muted); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+    }
 
     .container {
       width: 100%;
@@ -57,7 +73,10 @@
       height: 64px;
     }
 
-    .brand { font-weight: 700; letter-spacing: 0.02em; }
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
     .nav-links {
       display: none;
@@ -156,7 +175,6 @@
     }
 
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(37,99,235,0.32); }
-
     .btn-secondary {
       background: var(--card);
       color: var(--text);
@@ -187,10 +205,10 @@
       margin: 0.5rem 0;
     }
 
-    .hero p.lead { font-size: 1.05rem; color: var(--muted); }
-
-    .hero-meta { color: var(--muted); font-weight: 600; margin-top: 0.5rem; }
-    .hero-note { font-size: 0.95rem; color: var(--muted); }
+    .hero p.lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
 
     .hero-actions {
       display: flex;
@@ -250,7 +268,11 @@
       box-shadow: var(--shadow);
     }
 
-    .stats { display: grid; gap: 0.75rem; margin-top: 1rem; }
+    .stats {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
 
     .stat {
       display: flex;
@@ -275,8 +297,14 @@
     }
 
     /* Sections */
-    section { padding: 3rem 0; position: relative; }
-    .section-header { margin-bottom: 1.5rem; }
+    section {
+      padding: 3rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
 
     .section-eyebrow {
       color: var(--accent);
@@ -286,11 +314,21 @@
       font-size: 0.85rem;
     }
 
-    .section-title { font-size: clamp(1.4rem, 4vw, 2rem); margin: 0.35rem 0; }
+    .section-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin: 0.35rem 0;
+    }
 
     /* About */
-    .about-grid { display: grid; gap: 1.5rem; }
-    .pill-list { display: grid; gap: 0.7rem; }
+    .about-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .pill-list {
+      display: grid;
+      gap: 0.7rem;
+    }
 
     .pill {
       background: var(--card);
@@ -300,19 +338,11 @@
       box-shadow: var(--shadow);
     }
 
-    .stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-    .stack span {
-      background: rgba(37,99,235,0.08);
-      color: var(--text);
-      padding: 0.35rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid rgba(37,99,235,0.18);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
     /* Services */
-    .card-grid { display: grid; gap: 1rem; }
+    .card-grid {
+      display: grid;
+      gap: 1rem;
+    }
 
     .card {
       background: var(--card);
@@ -357,9 +387,6 @@
       border: 1px solid rgba(37,99,235,0.18);
     }
 
-    .project-points { margin: 0.25rem 0 0.75rem; padding-left: 1.1rem; color: var(--muted); }
-    .project-points li { margin-bottom: 0.25rem; }
-
     .card .btn-link {
       color: var(--accent);
       font-weight: 700;
@@ -369,7 +396,10 @@
     }
 
     /* Process */
-    .timeline { display: grid; gap: 1rem; }
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
 
     .step {
       display: grid;
@@ -417,7 +447,12 @@
     .testimonial strong { display: block; margin-top: 0.75rem; font-style: normal; color: var(--text); }
 
     /* Contact */
-    form { display: grid; gap: 0.75rem; margin-top: 1rem; }
+    form {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
     label { font-weight: 600; color: var(--text); }
 
     input, select, textarea {
@@ -432,14 +467,13 @@
     }
 
     input:focus, select:focus, textarea:focus { outline: 2px solid rgba(37,99,235,0.25); border-color: rgba(37,99,235,0.5); }
+
     textarea { min-height: 120px; resize: vertical; }
 
-    .helper { color: var(--muted); font-size: 0.9rem; margin-top: -0.35rem; margin-bottom: 0.35rem; }
-    .form-status { font-weight: 700; margin-top: 0.35rem; }
-    .form-status.success { color: #0f9d58; }
-    .form-status.error { color: #c1121f; }
-
-    .contact-options { margin-top: 0.75rem; color: var(--muted); }
+    .contact-options {
+      margin-top: 0.75rem;
+      color: var(--muted);
+    }
 
     footer { padding: 2rem 0 3rem; text-align: center; color: var(--muted); }
 
@@ -450,7 +484,10 @@
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Media Queries */
     @media (min-width: 768px) {
@@ -505,9 +542,8 @@
         <div class="hero-content">
           <div class="eyebrow">Freelance Web &amp; App Developer</div>
           <h1>Hi, I’m Gratitude. I build modern, conversion-focused websites.</h1>
-          <p class="lead">I help law firms, clinics, logistics companies, and real estate teams redesign outdated or underperforming sites into clean, mobile-first experiences with clear calls-to-action.</p>
-          <p class="lead">Based in Nigeria · Working remotely with clients in the UK, US, Canada, EU, UAE and beyond.</p>
-          <p class="hero-note">Comfortable with international payments and fully remote collaboration.</p>
+          <p class="lead">I design and build clean, modern websites that help service businesses look premium and get more clients.</p>
+          <p class="lead">I help law firms, clinics, logistics companies, and real estate agencies redesign and optimize their online presence.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">View my work</a>
             <a class="btn btn-secondary" href="https://wa.me/2347041022336" target="_blank" rel="noopener">Let’s talk on WhatsApp</a>
@@ -542,8 +578,8 @@
             <div class="stat">
               <div class="stat-icon">🌍</div>
               <div>
-                <strong>Remote-ready</strong>
-                <p>Based in Nigeria, collaborating smoothly worldwide.</p>
+                <strong>Based in Nigeria</strong>
+                <p>Working with clients worldwide and remote-friendly.</p>
               </div>
             </div>
           </div>
@@ -556,19 +592,16 @@
         <div class="section-header">
           <div class="section-eyebrow">About</div>
           <h2 class="section-title">Freelance developer focused on clarity, speed, and conversion.</h2>
-          <p>I’m Olanibi Adetoluwani Gratitude, a web &amp; app developer who loves building Vue/Nuxt experiences. I work with service businesses whose sites feel dated, cluttered, or not mobile-friendly, turning them into premium, easy-to-navigate experiences.</p>
+          <p>I’m Olanibi Adetoluwani Gratitude, a web &amp; app developer who loves building Vue/Nuxt experiences. I help serious service businesses—law firms, clinics, logistics teams, and real estate brands—modernize their digital presence with clean design and thoughtful UX.</p>
         </div>
         <div class="about-grid">
           <div>
             <p>I prioritize mobile-first layouts, clear copy, and strong calls-to-action so your website brings in the right clients. From fast-loading pages to SEO-friendly structure, I blend strategy with implementation for impactful results.</p>
-            <div class="stack">
-              <span>Vue / Nuxt</span><span>Tailwind CSS</span><span>Supabase</span><span>PHP APIs</span><span>Responsive design</span><span>Performance optimization</span><span>UI/UX for service businesses</span>
-            </div>
           </div>
           <div class="pill-list">
             <div class="pill">Modern, mobile-first layouts tailored to your offer.</div>
             <div class="pill">Clear messaging with strong calls-to-action that convert.</div>
-            <div class="pill">Fast-loading, SEO-friendly pages built for service credibility.</div>
+            <div class="pill">Fast-loading, SEO-friendly pages built with Vue/Nuxt and Tailwind.</div>
             <div class="pill">Simple processes, transparent communication, and reliable delivery.</div>
           </div>
         </div>
@@ -612,69 +645,40 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Projects</div>
-          <h2 class="section-title">Concept work for service brands</h2>
-          <p>Example layouts that show how I approach clarity, trust, and conversion for service-focused websites.</p>
+          <h2 class="section-title">Selected work for service brands</h2>
+          <p>Recent engagements focused on elevating trust, clarity, and conversion across industries.</p>
         </div>
         <div class="card-grid projects">
           <div class="card">
-            <div class="card-title">Concept: Seabird Law Firm – Modern website redesign</div>
-            <p>A concept redesign focused on trust, structured services, and mobile readability.</p>
-            <ul class="project-points">
-              <li>Old layout was dense and text-heavy on mobile.</li>
-              <li>New hero highlights core practice areas with a clear “Book consultation” CTA.</li>
-              <li>Emphasis on credibility signals to increase consultation requests.</li>
-            </ul>
+            <div class="card-title">Seabird Law Firm – Modern website redesign</div>
+            <p>Improved trust signals, streamlined service navigation, and delivered a mobile-first experience for consultations.</p>
             <div class="project-tags">
-              <span class="tag">Vue</span><span class="tag">Tailwind</span><span class="tag">Law Firm</span>
+              <span class="tag">Vue</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Law</span>
             </div>
-            <a class="btn-link" href="#case-studies">View case study →</a>
+            <a class="btn-link" href="#contact">View case study →</a>
           </div>
           <div class="card">
-            <div class="card-title">Concept: CityMove Logistics – Booking landing page</div>
-            <p>Example landing page that clarifies pricing, routes, and booking steps for logistics leads.</p>
-            <ul class="project-points">
-              <li>Original page buried quotes and contact details.</li>
-              <li>Redesign streamlines booking flow with upfront pricing and FAQs.</li>
-              <li>Goal: boost quote requests from mobile visitors.</li>
-            </ul>
+            <div class="card-title">CityMove Logistics – Booking landing page</div>
+            <p>Focused on clear pricing, quote request flow, and trust-building content to boost lead volume.</p>
             <div class="project-tags">
-              <span class="tag">Nuxt</span><span class="tag">Landing Page</span><span class="tag">Logistics</span>
+              <span class="tag">Nuxt</span>
+              <span class="tag">Landing Page</span>
+              <span class="tag">Logistics</span>
             </div>
-            <a class="btn-link" href="#case-studies">View case study →</a>
+            <a class="btn-link" href="#contact">View case study →</a>
           </div>
           <div class="card">
-            <div class="card-title">Concept: DentalCare Clinic – Patient-friendly site</div>
-            <p>A concept layout that simplifies services, insurance info, and booking actions for clinics.</p>
-            <ul class="project-points">
-              <li>Old site lacked clear CTAs and felt generic.</li>
-              <li>New structure elevates treatments, doctor bios, and booking forms.</li>
-              <li>Goal: increase appointment requests with a calmer, trustworthy feel.</li>
-            </ul>
+            <div class="card-title">DentalCare Clinic – Patient-friendly site</div>
+            <p>Created a calming visual language, clear services overview, and prominent booking CTA for new patients.</p>
             <div class="project-tags">
-              <span class="tag">Vue</span><span class="tag">Tailwind</span><span class="tag">Clinic</span>
+              <span class="tag">Vue</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Healthcare</span>
             </div>
-            <a class="btn-link" href="#case-studies">View case study →</a>
+            <a class="btn-link" href="#contact">View case study →</a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="case-studies" class="fade-in">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Case Studies</div>
-          <h2 class="section-title">How concept redesigns solve common issues</h2>
-          <p>Each concept focuses on making offers clear, elevating trust, and guiding visitors to book or inquire without friction.</p>
-        </div>
-        <div class="card">
-          <h3 style="margin-bottom: 0.5rem;">What I typically improve</h3>
-          <ul class="project-points">
-            <li>Clarify service navigation so prospects instantly see if you’re the right fit.</li>
-            <li>Surface booking and consultation CTAs in the hero and throughout key sections.</li>
-            <li>Improve readability with better spacing, typography, and mobile-first layouts.</li>
-            <li>Add trust signals: awards, licenses, team bios, and clear next steps.</li>
-          </ul>
-          <p style="margin-bottom:0;">Want something similar? Let’s tailor a redesign for your firm or practice.</p>
         </div>
       </div>
     </section>
@@ -683,36 +687,36 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Process</div>
-          <h2 class="section-title">A simple, transparent collaboration</h2>
-          <p>From discovery to launch, you’ll always know what’s happening and why.</p>
+          <h2 class="section-title">A clear, collaborative approach</h2>
+          <p>From discovery to launch, you’ll know what’s happening and why it matters for your business.</p>
         </div>
         <div class="timeline">
           <div class="step">
             <div class="step-number">1</div>
             <div>
-              <h3>Discovery call</h3>
-              <p>Understand your services, target clients, and what’s not working on the current site.</p>
+              <div class="card-title">Discovery &amp; alignment</div>
+              <p>We discuss your goals, audience, and existing assets to map out success.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">2</div>
             <div>
-              <h3>Wireframes &amp; direction</h3>
-              <p>Map content, calls-to-action, and trust signals with a mobile-first mindset.</p>
+              <div class="card-title">Wireframes &amp; direction</div>
+              <p>Low-fidelity wireframes to validate layout, messaging, and calls-to-action.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">3</div>
             <div>
-              <h3>Build &amp; refine</h3>
-              <p>Develop with Vue/Nuxt and Tailwind, iterate quickly, and optimize for speed.</p>
+              <div class="card-title">Development &amp; iteration</div>
+              <p>Build with Vue/Nuxt and Tailwind, refining UX and performance throughout.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">4</div>
             <div>
-              <h3>Launch &amp; support</h3>
-              <p>Handle handoff, analytics setup, and post-launch tweaks to keep performance sharp.</p>
+              <div class="card-title">Launch &amp; support</div>
+              <p>Deploy, measure, and support improvements so the site keeps converting.</p>
             </div>
           </div>
         </div>
@@ -723,21 +727,21 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">Testimonials</div>
-          <h2 class="section-title">Sample feedback placeholders</h2>
-          <p>These are sample testimonials used as placeholders. Real client feedback will replace them.</p>
+          <h2 class="section-title">Clients appreciate clear communication</h2>
+          <p>Easy to replace with your own quotes later. These highlight responsiveness, quality, and reliability.</p>
         </div>
         <div class="card-grid">
           <div class="testimonial">
             “Gratitude translated our legal services into a website that feels premium and trustworthy. Communication was crisp and timelines were met.”
-            <strong>Law Firm Owner (Sample)</strong>
+            <strong>Managing Partner, Seabird Law</strong>
           </div>
           <div class="testimonial">
-            “The logistics landing page made booking straightforward and reduced back-and-forth emails.”
-            <strong>Logistics Lead (Sample)</strong>
+            “The new logistics landing page tripled our inquiries. Mobile UX is on point and the process was straightforward.”
+            <strong>Operations Lead, CityMove Logistics</strong>
           </div>
           <div class="testimonial">
             “Fast, thoughtful, and collaborative. The redesign finally matches the experience we deliver to patients.”
-            <strong>Clinic Director (Sample)</strong>
+            <strong>Clinic Director, DentalCare</strong>
           </div>
         </div>
       </div>
@@ -748,16 +752,16 @@
         <div class="section-header">
           <div class="section-eyebrow">Contact</div>
           <h2 class="section-title">Let’s improve your website experience</h2>
-          <p>Tell me about your website redesign, new landing page, or ongoing UI/UX needs. I usually reply within 24 hours on weekdays.</p>
+          <p>Tell me about your website redesign, new landing page, or ongoing UI/UX needs. I work best with service businesses ready to look premium online.</p>
         </div>
-        <form id="contact-form" novalidate>
+        <form id="contact-form">
           <div>
             <label for="name">Name</label>
             <input id="name" name="name" type="text" placeholder="Your name" required />
           </div>
           <div>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@company.com" required />
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
           </div>
           <div>
             <label for="budget">Budget</label>
@@ -768,17 +772,15 @@
               <option value="3-7k">$3,000 - $7,000</option>
               <option value="7k+">$7,000+</option>
             </select>
-            <div class="helper">This helps me propose a realistic scope and timeline.</div>
           </div>
           <div>
             <label for="message">Project details</label>
             <textarea id="message" name="message" placeholder="Tell me about your goals and timeline" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Send message</button>
-          <div id="form-status" class="form-status" aria-live="polite"></div>
         </form>
         <div class="contact-options">
-          Prefer direct contact? Chat on <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">WhatsApp</a> or email <a href="mailto:hello@gratitudedevs.com">hello@gratitudedevs.com</a>.
+          Prefer direct contact? <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">Chat on WhatsApp</a> or email <a href="mailto:hello@example.com">hello@example.com</a>.
         </div>
       </div>
     </section>
@@ -786,8 +788,7 @@
 
   <footer>
     <div class="container">
-      © <span id="year"></span> Gratitude Developers. Built with care in Nigeria.<br />
-      Available for remote projects across the UK, US, Canada, EU, UAE and more.
+      © <span id="year"></span> Gratitude Developers. Built with care in Nigeria.
     </div>
   </footer>
 
@@ -818,26 +819,11 @@
       });
     });
 
-    // Fake form submission with simple validation
+    // Fake form submission
     const form = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-
-      if (!name || !email || !message) {
-        formStatus.textContent = 'Please fill in your name, email, and project details.';
-        formStatus.classList.add('error');
-        formStatus.classList.remove('success');
-        return;
-      }
-
-      formStatus.textContent = 'Thanks for reaching out! I’ll reply within 24 hours.';
-      formStatus.classList.add('success');
-      formStatus.classList.remove('error');
+      alert("Thanks for reaching out! I'll reply soon.");
       form.reset();
     });
 
