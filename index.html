@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gratitude Developers | Olanibi Adetoluwani Gratitude</title>
+  <style>
+    :root {
+      --accent: #2563eb;
+      --bg: #f9fafb;
+      --text: #0f172a;
+      --muted: #475569;
+      --card: #ffffff;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 14px;
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 1.2rem;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(249, 250, 251, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      background: rgba(37, 99, 235, 0.08);
+    }
+
+    .hamburger {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .hamburger span {
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      position: relative;
+      display: block;
+    }
+
+    .hamburger span::before,
+    .hamburger span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      transition: var(--transition);
+    }
+
+    .hamburger span::before { top: -6px; }
+    .hamburger span::after { top: 6px; }
+
+    .hamburger.active span { background: transparent; }
+    .hamburger.active span::before { transform: translateY(6px) rotate(45deg); }
+    .hamburger.active span::after { transform: translateY(-6px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0 0 1rem;
+      background: rgba(249, 250, 251, 0.95);
+    }
+
+    .mobile-menu a {
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.3rem;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      gap: 0.35rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(37,99,235,0.32); }
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-secondary:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      padding: 4rem 0 3rem;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      line-height: 1.2;
+      margin: 0.5rem 0;
+    }
+
+    .hero p.lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-illustration {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, rgba(37,99,235,0.12), rgba(37,99,235,0.04));
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 14%;
+      background: #0b1221;
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 12px 30px rgba(15,23,42,0.3);
+    }
+
+    .line {
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, rgba(37,99,235,0.85), rgba(37,99,235,0.4));
+      margin-bottom: 6px;
+      width: 100%;
+    }
+
+    .line.short { width: 70%; opacity: 0.8; }
+    .line.tiny { width: 40%; opacity: 0.6; }
+
+    .avatar {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #c7d2fe);
+      border: 4px solid #e2e8f0;
+      right: 14px;
+      bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(37,99,235,0.06);
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      color: var(--text);
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin: 0.35rem 0;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .pill-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .pill {
+      background: var(--card);
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: var(--shadow);
+    }
+
+    /* Services */
+    .card-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(15,23,42,0.12); }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(37,99,235,0.1);
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+
+    .card-title { font-size: 1.1rem; margin-bottom: 0.35rem; }
+
+    /* Projects */
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .tag {
+      background: rgba(37,99,235,0.08);
+      color: var(--text);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(37,99,235,0.18);
+    }
+
+    .card .btn-link {
+      color: var(--accent);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* Process */
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      background: var(--card);
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(148,163,184,0.2);
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: rgba(37,99,235,0.1);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: var(--card);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: var(--shadow);
+      font-style: italic;
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: "\201C";
+      position: absolute;
+      top: -18px;
+      left: 16px;
+      font-size: 3rem;
+      color: rgba(37,99,235,0.2);
+    }
+
+    .testimonial strong { display: block; margin-top: 0.75rem; font-style: normal; color: var(--text); }
+
+    /* Contact */
+    form {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    label { font-weight: 600; color: var(--text); }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.85rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: var(--card);
+      font: inherit;
+      color: var(--text);
+      transition: var(--transition);
+    }
+
+    input:focus, select:focus, textarea:focus { outline: 2px solid rgba(37,99,235,0.25); border-color: rgba(37,99,235,0.5); }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .contact-options {
+      margin-top: 0.75rem;
+      color: var(--muted);
+    }
+
+    footer { padding: 2rem 0 3rem; text-align: center; color: var(--muted); }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .hamburger { display: none; }
+      .mobile-menu { display: none !important; }
+      .hero { grid-template-columns: repeat(2, 1fr); gap: 3rem; padding: 5rem 0 4rem; }
+      .about-grid { grid-template-columns: 1.2fr 1fr; }
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; }
+      .step { grid-template-columns: 1fr; text-align: left; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero h1 { font-size: 3rem; }
+      .container { padding: 0 1.5rem; }
+      .card-grid.projects { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Gratitude Developers</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+    <div class="container mobile-menu" aria-label="Mobile Navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="fade-in">
+      <div class="container hero">
+        <div class="hero-content">
+          <div class="eyebrow">Freelance Web &amp; App Developer</div>
+          <h1>Hi, I’m Gratitude. I build modern, conversion-focused websites.</h1>
+          <p class="lead">I design and build clean, modern websites that help service businesses look premium and get more clients.</p>
+          <p class="lead">I help law firms, clinics, logistics companies, and real estate agencies redesign and optimize their online presence.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View my work</a>
+            <a class="btn btn-secondary" href="https://wa.me/2347041022336" target="_blank" rel="noopener">Let’s talk on WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-illustration" aria-hidden="true">
+            <div class="screen">
+              <div class="line"></div>
+              <div class="line short"></div>
+              <div class="line tiny"></div>
+              <div class="line short"></div>
+              <div class="line tiny"></div>
+            </div>
+            <div class="avatar"></div>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-icon">3+</div>
+              <div>
+                <strong>Projects shipped</strong>
+                <p>Delivery focused across web and app builds.</p>
+              </div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">SB</div>
+              <div>
+                <strong>Service businesses</strong>
+                <p>Specializing in law, clinics, logistics, and real estate.</p>
+              </div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">🌍</div>
+              <div>
+                <strong>Based in Nigeria</strong>
+                <p>Working with clients worldwide and remote-friendly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">About</div>
+          <h2 class="section-title">Freelance developer focused on clarity, speed, and conversion.</h2>
+          <p>I’m Olanibi Adetoluwani Gratitude, a web &amp; app developer who loves building Vue/Nuxt experiences. I help serious service businesses—law firms, clinics, logistics teams, and real estate brands—modernize their digital presence with clean design and thoughtful UX.</p>
+        </div>
+        <div class="about-grid">
+          <div>
+            <p>I prioritize mobile-first layouts, clear copy, and strong calls-to-action so your website brings in the right clients. From fast-loading pages to SEO-friendly structure, I blend strategy with implementation for impactful results.</p>
+          </div>
+          <div class="pill-list">
+            <div class="pill">Modern, mobile-first layouts tailored to your offer.</div>
+            <div class="pill">Clear messaging with strong calls-to-action that convert.</div>
+            <div class="pill">Fast-loading, SEO-friendly pages built with Vue/Nuxt and Tailwind.</div>
+            <div class="pill">Simple processes, transparent communication, and reliable delivery.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Services</div>
+          <h2 class="section-title">Solutions tailored for service businesses</h2>
+          <p>I partner with law firms, clinics, logistics companies, real estate teams, and other SMEs to redesign and optimize their digital touchpoints.</p>
+        </div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">💡</div>
+            <div class="card-title">Website Redesigns</div>
+            <p>Transform outdated sites into polished experiences with clear messaging, stronger branding, and persuasive CTAs.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">🚀</div>
+            <div class="card-title">New Landing Pages</div>
+            <p>Launch targeted landing pages that focus on bookings and inquiries for legal, medical, and logistics services.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">📊</div>
+            <div class="card-title">Web Apps &amp; Dashboards</div>
+            <p>Build Vue/Nuxt-powered dashboards and client portals that streamline operations and improve retention.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <div class="card-title">Performance &amp; UX Improvements</div>
+            <p>Optimize speed, accessibility, and user journeys so visitors stay engaged and convert on any device.</p>
+          </div>
+        </div>
+        <p style="margin-top:1rem; color: var(--muted);">I work best with serious service businesses ready for a premium, high-performing website.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Projects</div>
+          <h2 class="section-title">Selected work for service brands</h2>
+          <p>Recent engagements focused on elevating trust, clarity, and conversion across industries.</p>
+        </div>
+        <div class="card-grid projects">
+          <div class="card">
+            <div class="card-title">Seabird Law Firm – Modern website redesign</div>
+            <p>Improved trust signals, streamlined service navigation, and delivered a mobile-first experience for consultations.</p>
+            <div class="project-tags">
+              <span class="tag">Vue</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Law</span>
+            </div>
+            <a class="btn-link" href="#contact">View case study →</a>
+          </div>
+          <div class="card">
+            <div class="card-title">CityMove Logistics – Booking landing page</div>
+            <p>Focused on clear pricing, quote request flow, and trust-building content to boost lead volume.</p>
+            <div class="project-tags">
+              <span class="tag">Nuxt</span>
+              <span class="tag">Landing Page</span>
+              <span class="tag">Logistics</span>
+            </div>
+            <a class="btn-link" href="#contact">View case study →</a>
+          </div>
+          <div class="card">
+            <div class="card-title">DentalCare Clinic – Patient-friendly site</div>
+            <p>Created a calming visual language, clear services overview, and prominent booking CTA for new patients.</p>
+            <div class="project-tags">
+              <span class="tag">Vue</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Healthcare</span>
+            </div>
+            <a class="btn-link" href="#contact">View case study →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Process</div>
+          <h2 class="section-title">A clear, collaborative approach</h2>
+          <p>From discovery to launch, you’ll know what’s happening and why it matters for your business.</p>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div>
+              <div class="card-title">Discovery &amp; alignment</div>
+              <p>We discuss your goals, audience, and existing assets to map out success.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div>
+              <div class="card-title">Wireframes &amp; direction</div>
+              <p>Low-fidelity wireframes to validate layout, messaging, and calls-to-action.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div>
+              <div class="card-title">Development &amp; iteration</div>
+              <p>Build with Vue/Nuxt and Tailwind, refining UX and performance throughout.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div>
+              <div class="card-title">Launch &amp; support</div>
+              <p>Deploy, measure, and support improvements so the site keeps converting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Testimonials</div>
+          <h2 class="section-title">Clients appreciate clear communication</h2>
+          <p>Easy to replace with your own quotes later. These highlight responsiveness, quality, and reliability.</p>
+        </div>
+        <div class="card-grid">
+          <div class="testimonial">
+            “Gratitude translated our legal services into a website that feels premium and trustworthy. Communication was crisp and timelines were met.”
+            <strong>Managing Partner, Seabird Law</strong>
+          </div>
+          <div class="testimonial">
+            “The new logistics landing page tripled our inquiries. Mobile UX is on point and the process was straightforward.”
+            <strong>Operations Lead, CityMove Logistics</strong>
+          </div>
+          <div class="testimonial">
+            “Fast, thoughtful, and collaborative. The redesign finally matches the experience we deliver to patients.”
+            <strong>Clinic Director, DentalCare</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Contact</div>
+          <h2 class="section-title">Let’s improve your website experience</h2>
+          <p>Tell me about your website redesign, new landing page, or ongoing UI/UX needs. I work best with service businesses ready to look premium online.</p>
+        </div>
+        <form id="contact-form">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div>
+            <label for="budget">Budget</label>
+            <select id="budget" name="budget" required>
+              <option value="">Select budget range</option>
+              <option value="below-1k">Below $1,000</option>
+              <option value="1-3k">$1,000 - $3,000</option>
+              <option value="3-7k">$3,000 - $7,000</option>
+              <option value="7k+">$7,000+</option>
+            </select>
+          </div>
+          <div>
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="Tell me about your goals and timeline" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </form>
+        <div class="contact-options">
+          Prefer direct contact? <a href="https://wa.me/2347041022336" target="_blank" rel="noopener">Chat on WhatsApp</a> or email <a href="mailto:hello@example.com">hello@example.com</a>.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Gratitude Developers. Built with care in Nigeria.
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const navLinks = document.querySelectorAll('header a');
+
+    const toggleMenu = () => {
+      const isOpen = mobileMenu.style.display === 'flex';
+      mobileMenu.style.display = isOpen ? 'none' : 'flex';
+      hamburger.classList.toggle('active', !isOpen);
+      hamburger.setAttribute('aria-expanded', (!isOpen).toString());
+    };
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').replace('#', '');
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (mobileMenu.style.display === 'flex') toggleMenu();
+      });
+    });
+
+    // Fake form submission
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Thanks for reaching out! I'll reply soon.");
+      form.reset();
+    });
+
+    // Intersection observer for fade-in sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
+
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
